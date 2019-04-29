@@ -51,40 +51,66 @@
 							<h3>PERSONAL INFORMATION</h3>
 							<div>
 								<span>First Name<label>*</label></span>
-								<input type="text"> 
+								<input type="text" id="FirstName"> 
 							</div>
 							<div>
 								<span>Last Name<label>*</label></span>
-								<input type="text"> 
+								<input type="text" id="LastName"> 
 							</div>
 							<div>
-								<span>ID Number<label>*</label></span>
-								<input type="text"> 
+								<span>Email<label>*</label></span>
+								<input type="text" id="Email"> 
 							</div>
 							<div>
-								<span>Nick Name<label>*</label></span>
-								<input type="text"> 
+								<span>Age<label>*</label></span>
+								<input type="text" id="Age"> 
 							</div>
-						</div>
-						<div class="register-bottom-grid">
-							<h3>LOGIN INFORMATION</h3>
+							<div>
+								<span>Gender<label>*</label></span>
+								<input type="text" id="Gender"> 
+							</div>
+							<div>
+								<span>Country<label>*</label></span>
+								<input type="text" id="Country"> 
+							</div>
+							<div>
+								<span>City<label>*</label></span>
+								<input type="text" id="City"> 
+							</div>							
 							<div>
 								<span>Password<label>*</label></span>
-								<input type="text">
-							</div>
-							<div>
-								<span>Confirm Password<label>*</label></span>
-								<input type="text">
+								<input type="text" id="Password"> 
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 					</form>
 					<div class="clearfix"> </div>
 					<div class="register-but">
-						<a class="acount-btn" href="rateself.html">Submit</a>
+						<a class="acount-btn" id="bt" href="rateself.html">Submit</a>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script>
+			var bt = document.getElementById('bt');
+			bt.onclick = function () {
+				var reqarr = new Array(document.getElementById('FirstName').value,document.getElementById('LastName').value,document.getElementById('Email').value,document.getElementById('Age').value,document.getElementById('Gender').value,document.getElementById('Country').value,document.getElementById('City').value,document.getElementById('Password').value,);
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.onreadystatechange = function() {
+					if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+						if(xmlHttp.responseText) {
+							alert('Registration succuessful');
+							window.open("index.html","_blank"); 
+						}
+						else {
+							alert('Registration failed, please try again');
+							window.location.reload();
+						}
+					}
+				};
+				xmlHttp.open('PUT', 'http://127.0.0.1:23456/', true);
+				xmlHttp.send(JSON.stringify(reqarr));
+			};
+	    </script>
 	</body>
-</html>		
+</html>	
