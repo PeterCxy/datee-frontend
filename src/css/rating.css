@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.rating-star{
+    width: 400px;
+    margin: auto;
+    height: 120px;
+}
+.rating-star li{
+    width: 80px;
+    float: left;
+    height: 90px;
+    cursor: pointer;
+	margin-top: 90px;
+    background: url("../images/img-sprite.png") no-repeat -28px -1px;
+    list-style: none;
+}
+
+button {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 10pt;
+	margin: 30px;
+    outline: none;
+}
+
+button:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}
+
+button:active {
+    box-shadow: inset 1px 1px 1px #DFDFDF;   
+}
+
+p{
+	font: 150%/150% 'Freckle Face', cursive;
+}
